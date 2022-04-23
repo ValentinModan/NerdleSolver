@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.nerdle.NerdleProcessor.uniqueCharacters;
+
 public class EquationsGenerator {
 
     private static final int EQUATION_LENGTH = 8;
@@ -16,6 +18,7 @@ public class EquationsGenerator {
                 .flatMap(Collection::stream)
                 .filter(equation -> equation.length() == EQUATION_LENGTH)
                 .filter(NerdleProcessor::isExpressionValid)
+                .sorted((first,second)->  uniqueCharacters(second).compareTo(uniqueCharacters(first)))
                 .collect(Collectors.toList());
     }
 
@@ -34,9 +37,7 @@ public class EquationsGenerator {
                         stringBuilder.append(NerdleProcessor.EQUALS)
                                 .append(result);
                         equationList.add(stringBuilder.toString());
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
 
                     }
                 }
@@ -48,6 +49,34 @@ public class EquationsGenerator {
 
     private static List<String> generateThreeElementEquations() {
         List<String> equationList = new ArrayList<>();
+        for (int i = 0; i <= 99; i++) {
+            for (int j = 0; j <= 99; j++) {
+                for (int k = 0; k <= 99; k++) {
+                    for (char operator : operatorsList.toCharArray()) {
+                        for (char secondOperator : operatorsList.toCharArray()) {
+                            StringBuilder stringBuilder = new StringBuilder();
+                            stringBuilder.append(i)
+                                    .append(operator)
+                                    .append(j)
+                                    .append(secondOperator)
+                                    .append(k);
+                            try {
+                                String result = NerdleProcessor.computeEquation(stringBuilder.toString());
+
+
+                                stringBuilder.append(NerdleProcessor.EQUALS)
+                                        .append(result);
+                                equationList.add(stringBuilder.toString());
+                            }
+                            catch (Exception e)
+                            {
+
+                        }
+                        }
+                    }
+                }
+            }
+        }
         return equationList;
     }
 }
