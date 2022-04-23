@@ -9,6 +9,14 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.nerdle.Main'
+        )
+    }
+}
+
 dependencies {
 
     // https://mvnrepository.com/artifact/net.objecthunter/exp4j

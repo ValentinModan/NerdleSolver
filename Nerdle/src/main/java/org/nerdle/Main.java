@@ -23,13 +23,16 @@ public class Main {
         // Reading data using readLine
 
         List<String> equationsList = EquationsGenerator.generateEquations();
+        System.out.println(equationsList);
         System.out.println(equationsList.stream().limit(10).collect(Collectors.toList()));
         String equation = reader.readLine();
 
+        System.out.println(equationsList.size());
 
         while (!equation.isEmpty()) {
             String filter = reader.readLine();
             equationsList = NerdleProcessor.filterList(equationsList, equation, filter);
+            System.out.println(equationsList.size());
             System.out.println(equationsList.stream().limit(10).collect(Collectors.toList()));
             equation = reader.readLine();
         }

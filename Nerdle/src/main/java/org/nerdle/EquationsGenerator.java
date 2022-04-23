@@ -20,6 +20,10 @@ public class EquationsGenerator {
                 .collect(Collectors.toList());
 
         Map<Character, Double> characterDoubleMap = generateFrequencyMap(resultList);
+        for (Character character:characterDoubleMap.keySet()) {
+            System.out.println("'"+character + "' = " + characterDoubleMap.get(character));
+            
+        }
         System.out.println(characterDoubleMap);
         resultList = resultList.stream()
                 .sorted(Comparator.comparing(s -> computeDistance(s, characterDoubleMap)))
@@ -74,8 +78,8 @@ public class EquationsGenerator {
     private static List<String> generateTwoElementEquations() {
         List<String> equationList = new ArrayList<>();
 
-        for (int i = 0; i <= 999; i++) {
-            for (int j = 0; j <= 999; j++) {
+        for (int i = 0; i <= 1000; i++) {
+            for (int j = 0; j <= 1000; j++) {
                 for (char operator : operatorsList.toCharArray()) {
                     try {
                         StringBuilder stringBuilder = new StringBuilder();
@@ -83,9 +87,12 @@ public class EquationsGenerator {
                                 .append(operator)
                                 .append(j);
                         String result = NerdleProcessor.computeEquation(stringBuilder.toString());
+
                         stringBuilder.append(NerdleProcessor.EQUALS)
                                 .append(result);
-                        equationList.add(stringBuilder.toString());
+                        if (result.charAt(0) != '-') {
+                            equationList.add(stringBuilder.toString());
+                        }
                     } catch (Exception e) {
 
                     }
@@ -115,7 +122,9 @@ public class EquationsGenerator {
 
                                 stringBuilder.append(NerdleProcessor.EQUALS)
                                         .append(result);
-                                equationList.add(stringBuilder.toString());
+                                if (result.charAt(0) != '-') {
+                                    equationList.add(stringBuilder.toString());
+                                }
                             } catch (Exception e) {
 
                             }

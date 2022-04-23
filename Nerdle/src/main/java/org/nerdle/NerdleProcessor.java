@@ -194,16 +194,4 @@ public class NerdleProcessor {
         }
         return charMap;
     }
-
-    private static List<Integer> allIndexes(String string, char c) {
-        List<Integer> integerList = new ArrayList<>();
-        int index = string.indexOf(c);
-        while (index != -1) {
-            integerList.add(index);
-
-            string = string.substring(index + 1);
-            index = string.indexOf(c);
-        }
-        return integerList;
-    }
 }
