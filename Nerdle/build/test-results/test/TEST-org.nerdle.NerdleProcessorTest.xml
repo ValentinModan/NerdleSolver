@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.nerdle.NerdleProcessorTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2022-04-23T09:21:38" hostname="192-168-0-203.rdsnet.ro" time="0.027">
+  <properties/>
+  <testcase name="[1] 9*8-7=65, true" classname="org.nerdle.NerdleProcessorTest" time="0.018"/>
+  <testcase name="[2] 0+12/3=4, true" classname="org.nerdle.NerdleProcessorTest" time="0.001"/>
+  <testcase name="[3] 47-5*9=2, true" classname="org.nerdle.NerdleProcessorTest" time="0.001"/>
+  <testcase name="[4] 12/4+0=3, true" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <testcase name="[5] 17-3*4=5, true" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <testcase name="[6] 56/8+2=9, true" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <testcase name="[7] 9*8-765, false" classname="org.nerdle.NerdleProcessorTest" time="0.001"/>
+  <testcase name="[8] 9*8-765=, false" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <testcase name="[9] 12+3=5, false" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <testcase name="[10] 13/3=4, false" classname="org.nerdle.NerdleProcessorTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
